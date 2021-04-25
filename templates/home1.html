@@ -1,0 +1,49 @@
+{% extends "layout1.html" %}
+{% block title %}List it!{% endblock %}
+{% block page %}List it!{% endblock %}
+
+{{ super() }}
+
+{% block content %}
+  
+  <!-- The Team -->
+  <div class="w3-row-padding w3" id="large">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg" alt="Pot of food" style="width:100%">
+        <div class="w3-container">
+          <h3>Recipes</h3>
+          <p class="w3-opacity">Search for cooking ideas</p>
+          <a href="/search">Search</a>
+      
+        </div>
+      </div>
+    </div>
+
+
+  
+
+    <div class="w3-col m4 w3-margin-bottom" id="large">
+      <div class="w3-light-grey">
+        <img src="https://www.budgetbytes.com/wp-content/uploads/2013/07/How-to-Calculate-Recipe-Costs-H.jpg" alt="List" style="width:100%">
+        <div class="w3-container">
+          <h3>My List</h3>
+          <p class="w3-opacity">Access your saved ingredients</p>
+          <a href="/mylist">Access</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- End page content -->
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+

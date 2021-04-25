@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %} My Ingredients{% endblock %}
+{% block page %} {{ current_user.username }}'s Ingredients{% endblock %}
+
+{{ super() }}
+
+{% block content %}
+  {% if current_user.is_authenticated %}
+  <div class="container">
+    <div class="row">
+      <form class="col s12 m8 offset-m2 card-panel" method="POST" action="/myingredients">
+            
+            {{ form.csrf_token }}
+
+            <div class="input-field col s12 m8 offset-m2"> 
+              {{ form.name(size=200, class="validate materialize-textarea") }}
+              {{ form.name.label }}
+            </div>
+
+            <div class="input-field col s12 m8 offset-m2">
+              {{form.submit}}
+            </div> 
+        </form>
+    </div>
+  </div>
+        
+  </div>
+
+  {% endif %}
+{% endblock %}

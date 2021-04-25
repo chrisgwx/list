@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>{% block title %}{% endblock %}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+     <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style>
+  
+  img.brand-logo{
+       width: 50px;
+       height: 50px; 
+       border: none;
+       postion: relative;
+       bottom: 2px;
+       right: 5px;
+     }
+
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+
+body {
+  font-size:16px;
+  background-image: url(https://previews.123rf.com/images/markstout/markstout1402/markstout140200037/25754952-cherry-pie-with-a-lattice-crust-on-a-picnic-table.jpg);
+  background-size: cover;
+  
+}
+
+.w3-half img{margin-bottom:-6px;margin-top:20px;opacity:0.9;cursor:pointer}
+ 
+
+</style>
+<body>
+
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:200px;font-weight:bold;" id="mySidebar"><br>
+ 
+   
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:25px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>List It</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="/" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="/login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a> 
+    <a href="/signup" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sign Up</a> 
+    <a href="#designers" onclick="w3_close()"  
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-black w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>List It</span>
+   <a href="#" class="brand-logo center"></a>
+
+        <img class="brand-logo" src="https://cdn.discordapp.com/attachments/773263858948112412/834885303172726804/list_it_for_school.png"> 
+   
+</header>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:50px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>List It</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+
+
+  <div>
+  
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <nav class="white black-text" style="padding: 10px">
+        <div class="nav-wrapper">
+          <ul class="flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        </div>
+      </nav>
+      {% endif %}
+    {% endwith %}
+    </div>
+  
+  <div id="content">{% block content %}{% endblock %}</div>
+ 
+
+  
+
+<!-- W3.CSS Container -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">©</p></div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+
+</script>
+
+<script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
